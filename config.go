@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/agl/xmpp-client/xmpp"
+	"github.com/thommfullery/birdcannon/xmpp"
 	"golang.org/x/crypto/otr"
 	"golang.org/x/crypto/ssh/terminal"
 	"golang.org/x/net/proxy"
@@ -135,12 +135,12 @@ func enroll(config *Config, term *terminal.Terminal) bool {
 		break
 	}
 
-	term.SetPrompt("Enable debug logging to /tmp/xmpp-client-debug.log? ")
+	term.SetPrompt("Enable debug logging to /tmp/birdcannon-debug.log? ")
 	if debugLog, err := term.ReadLine(); err != nil || debugLog != "yes" {
 		info(term, "Not enabling debug logging...")
 	} else {
 		info(term, "Debug logging enabled...")
-		config.RawLogFile = "/tmp/xmpp-client-debug.log"
+		config.RawLogFile = "/tmp/birdcannon-debug.log"
 	}
 
 	term.SetPrompt("Use Tor?: ")

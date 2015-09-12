@@ -1,5 +1,5 @@
 #
-#    AppArmor xmpp-client profile for Ubuntu 11.04 and later
+#    AppArmor birdcannon profile for Ubuntu 11.04 and later
 #
 #    This program is free software; you can redistribute it and/or
 #    modify it under the terms of version 2 of the GNU General Public
@@ -7,7 +7,7 @@
 #
 
 #include <tunables/global>
-/usr/bin/xmpp-client {
+/usr/bin/birdcannon {
   #include <abstractions/consoles>
   #include <abstractions/ssl_certs>
 
@@ -17,12 +17,12 @@
   # IPv4 UDP for DNS resolution
   #network inet dgram,
 
-  # Allow reading of /etc/xmpp-client/
-  /etc/xmpp-client/*/** r,
+  # Allow reading of /etc/birdcannon/
+  /etc/birdcannon/*/** r,
 
-  # Allow reading/writing of xmpp-client dot files
-  /home/*/.xmpp-client rw,
-  /home/*/.xmpp-client* rw,
+  # Allow reading/writing of birdcannon dot files
+  /home/*/.birdcannon rw,
+  /home/*/.birdcannon* rw,
 
   # Allow reading of libs and /tmp
   /etc/ld.so.cache r,
@@ -31,7 +31,7 @@
   /dev/random r,
   /dev/urandom r,
 
-  # Various xmpp-client denials that make life easier
+  # Various birdcannon denials that make life easier
   /etc/ssl/certs/ca-certificates.crt r,
   /proc/sys/net/core/somaxconn r,
   /etc/localtime r,
@@ -43,6 +43,6 @@
   /usr/lib/* rm,
   /lib/x86_64-linux-gnu/* rm,
 
-  # We'll allow xmpp-client to write debug logs
-  /tmp/xmpp-client*.log rw,
+  # We'll allow birdcannon to write debug logs
+  /tmp/birdcannon*.log rw,
 }

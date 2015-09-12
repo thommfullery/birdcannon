@@ -1,20 +1,27 @@
-xmpp-client setup
+birdcannon setup
 =================
 
-    go get github.com/agl/xmpp-client
+    go get github.com/thommfullery/birdcannon
 
 (If you don't have Go already installed then see below.)
 
-xmpp-client use
+fork of agl/xmpp-client
+=======================
+
+This is a fork with no changes yet. Get the original here:
+
+     go get github.com/agl/xmpp-client
+     
+birdcannon use
 ===============
 
-xmpp-client is a simple XMPP client written in pure Go. It's a terminal program and so probably doesn't work on Windows.
+birdcannon is a simple XMPP client written in pure Go. It's a terminal program and so probably doesn't work on Windows.
 
-xmpp-client expects a config file in `~/.xmpp-client`. You can set the location of the config file with `--config-file` on the command line. If it fails to parse a config file, it'll enter enrollment: where it'll ask a series of questions to configure itself and will then write a config file from the answers.
+birdcannon expects a config file in `~/.birdcannon`. You can set the location of the config file with `--config-file` on the command line. If it fails to parse a config file, it'll enter enrollment: where it'll ask a series of questions to configure itself and will then write a config file from the answers.
 
-The config file is just a JSON file and can be edited by hand. (Although xmpp-client will rewrite it, blowing away any comments or custom formatting.)
+The config file is just a JSON file and can be edited by hand. (Although birdcannon will rewrite it, blowing away any comments or custom formatting.)
 
-xmpp-client will prompt for a password each time it's run. If you want to save the password you have to edit the config file and insert a string element called `Password`. (This ensures that you understand that the password is stored in plaintext.)
+birdcannon will prompt for a password each time it's run. If you want to save the password you have to edit the config file and insert a string element called `Password`. (This ensures that you understand that the password is stored in plaintext.)
 
 Once the connection has been established, the commands are quite simple. Type `/help` for a listing.
 
@@ -43,13 +50,13 @@ Build and run instructions for Ubuntu 13.10 (codename Saucy Salamander, go versi
 
     sudo apt-get install git golang mercurial
     export GOPATH=$HOME/go
-    go get github.com/agl/xmpp-client
-    $GOPATH/bin/xmpp-client
+    go get github.com/thommfullery/birdcannon
+    $GOPATH/bin/birdcannon
 
     ## If you want to set up an alias
-    echo "alias xmpp-client='$GOPATH/bin/xmpp-client' " >> ~/.bashrc
+    echo "alias birdcannon='$GOPATH/bin/birdcannon' " >> ~/.bashrc
     . ~/.bashrc
-    xmpp-client
+    birdcannon
 
 Build and run instructions for Tails (tested on version 1.2, go version 1.2)
 
@@ -65,5 +72,5 @@ Build and run instructions for Tails (tested on version 1.2, go version 1.2)
     ## Assuming you have created a persistant volume
     export GOPATH=/home/amnesia/Persistent/go/
 
-    go get github.com/agl/xmpp-client
-    $GOPATH/bin/xmpp-client
+    go get github.com/thommfullery/birdcannon
+    $GOPATH/bin/birdcannon

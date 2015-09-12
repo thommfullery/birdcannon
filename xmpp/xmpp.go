@@ -381,7 +381,7 @@ func certName(cert *x509.Certificate) string {
 // Resolve performs a DNS SRV lookup for the XMPP server that serves the given
 // domain.
 func Resolve(domain string) (host string, port uint16, err error) {
-	_, addrs, err := net.LookupSRV("xmpp-client", "tcp", domain)
+	_, addrs, err := net.LookupSRV("birdcannoon", "tcp", domain)
 	if err != nil {
 		return "", 0, err
 	}

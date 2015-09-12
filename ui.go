@@ -22,7 +22,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/agl/xmpp-client/xmpp"
+	"github.com/thommfullery/birdcannon/xmpp"
 	"golang.org/x/crypto/otr"
 	"golang.org/x/crypto/ssh/terminal"
 	"golang.org/x/net/html"
@@ -218,7 +218,7 @@ func main() {
 			// Looks like Tails.
 			homeDir = persistentDir
 		}
-		*configFile = filepath.Join(homeDir, ".xmpp-client")
+		*configFile = filepath.Join(homeDir, ".birdcannon")
 	}
 
 	config, err := ParseConfig(*configFile)
@@ -1039,7 +1039,7 @@ func (s *Session) awaitVersionReply(ch <-chan xmpp.Stanza, user string) {
 func (s *Session) editRoster(roster []xmpp.RosterEntry) {
 	// In case the editor rewrites the file, we work inside a temp
 	// directory.
-	dir, err := ioutil.TempDir("" /* system default temp dir */, "xmpp-client")
+	dir, err := ioutil.TempDir("" /* system default temp dir */, "birdcannon")
 	if err != nil {
 		alert(s.term, "Failed to create temp dir to edit roster: "+err.Error())
 		return
